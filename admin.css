@@ -639,3 +639,412 @@ tfoot td {
 .donut{
   width: 130px;
 }
+
+@media (max-width: 600px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+  }
+  body {
+    overflow-x: hidden;
+  }
+  #app,
+  #view {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  /* Cabeçalho compacto: marca + ações, abas em uma linha rolável */
+  header nav {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.65rem 0.5rem;
+    align-items: center;
+    padding: 0.65rem 0.85rem;
+  }
+  header nav > .logo {
+    min-width: 0;
+    font-size: 1.12rem;
+    gap: 0.32rem;
+    white-space: nowrap;
+  }
+  header nav > .logo span {
+    font-size: 0.65rem;
+  }
+  header nav > .actions:last-child {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    flex-wrap: nowrap;
+    gap: 0.3rem;
+  }
+  header nav > .actions .btn {
+    padding: 0.42rem 0.52rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+  header nav .tabs {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    min-width: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 0.15rem;
+  }
+  header nav .tabs::-webkit-scrollbar {
+    display: none;
+  }
+  header nav .tabs button {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 0.55rem 0.65rem;
+    font-size: 0.85rem;
+  }
+
+  main {
+    padding: 1rem 0.8rem calc(2rem + env(safe-area-inset-bottom));
+  }
+  .card {
+    min-width: 0;
+    margin-bottom: 1rem;
+  }
+  .card-h {
+    padding: 0.85rem 1rem;
+  }
+  .card-h h3 {
+    font-size: 1.1rem;
+  }
+  .card-b {
+    padding: 1rem;
+    min-width: 0;
+  }
+  .grid,
+  #view .grid[style] {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 0;
+  }
+  .grid > *,
+  .rep > *,
+  .ctl > * {
+    min-width: 0;
+  }
+
+  .kpis {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem;
+  }
+  .kpi {
+    min-width: 0;
+    padding: 0.8rem 0.9rem;
+  }
+  .kpi small {
+    font-size: 0.72rem;
+  }
+  .kpi b {
+    font-size: clamp(1.1rem, 5.2vw, 1.5rem);
+    overflow-wrap: anywhere;
+  }
+  .kpis:has(#kQtd) .kpi:last-child {
+    grid-column: 1 / -1;
+  }
+
+  /* Clientes: formulário em largura total e filtros em linha */
+  .ctl {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.7rem;
+  }
+  .search {
+    width: 100%;
+    min-width: 0;
+  }
+  .ftabs {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .ftabs button {
+    padding: 0.5rem 0.82rem;
+    font-size: 0.85rem;
+  }
+  #clientForm input,
+  #clientForm select,
+  #clientForm button {
+    width: 100%;
+  }
+
+  /* Tabelas extensas passam a cartões verticais legíveis */
+  .card:has(#cBody) .tw,
+  .card:has(#rBody) .tw,
+  .card:has(#rPay) .tw {
+    overflow: visible;
+  }
+  .card:has(#cBody) table,
+  .card:has(#rBody) table,
+  .card:has(#rPay) table,
+  #cBody,
+  #rBody,
+  #rPay {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+  .card:has(#cBody) thead,
+  .card:has(#rBody) thead,
+  .card:has(#rPay) thead {
+    display: none;
+  }
+  #cBody tr,
+  #rBody tr,
+  #rPay tr {
+    display: grid;
+    min-width: 0;
+    margin: 0.65rem 0.8rem;
+    padding: 0.55rem 0.85rem;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--bg);
+  }
+  #cBody td,
+  #rBody td,
+  #rPay td {
+    min-width: 0;
+    width: 100%;
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px solid var(--line) !important;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    text-align: right;
+  }
+  #cBody td:last-child,
+  #rBody td:last-child,
+  #rPay td:last-child {
+    border-bottom: 0 !important;
+  }
+  #cBody td::before,
+  #rBody td::before,
+  #rPay td::before {
+    color: var(--muted);
+    font-size: 0.76rem;
+    font-weight: 500;
+    text-align: left;
+    flex: 0 0 32%;
+  }
+  #cBody td:nth-child(1)::before {
+    content: "Nome";
+  }
+  #cBody td:nth-child(2)::before {
+    content: "Telefone";
+  }
+  #cBody td:nth-child(3)::before {
+    content: "Status";
+  }
+  #cBody td:nth-child(4)::before {
+    content: "Ações";
+  }
+  #rBody td:nth-child(1)::before {
+    content: "Data";
+  }
+  #rBody td:nth-child(2)::before {
+    content: "Hora";
+  }
+  #rBody td:nth-child(3)::before {
+    content: "Cliente";
+  }
+  #rBody td:nth-child(4)::before {
+    content: "Serviços";
+  }
+  #rBody td:nth-child(5)::before {
+    content: "Barbeiro";
+  }
+  #rBody td:nth-child(6)::before {
+    content: "Pagamento";
+  }
+  #rBody td:nth-child(7)::before {
+    content: "Valor";
+  }
+  #rPay td:nth-child(1)::before {
+    content: "Forma";
+  }
+  #rPay td:nth-child(2)::before {
+    content: "Atend.";
+  }
+  #rPay td:nth-child(3)::before {
+    content: "Valor";
+  }
+  #rPay td:nth-child(4)::before {
+    content: "%";
+  }
+  #cBody td.act {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    gap: 0.25rem;
+  }
+  #cBody td.act::before {
+    align-self: center;
+  }
+  #cBody td.act button {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+  /* Linhas de estado vazio: não fingir colunas inexistentes */
+  #cBody td[colspan],
+  #rBody td[colspan] {
+    text-align: left;
+  }
+  #cBody td[colspan]::before,
+  #rBody td[colspan]::before {
+    content: none;
+  }
+
+  /* Relatórios: datas em duas colunas; ações com largura adequada */
+  .card:has(#rBody) .toolbar {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+  }
+  .card:has(#rBody) .toolbar .field {
+    min-width: 0;
+  }
+  .card:has(#rBody) .toolbar input[type="date"] {
+    width: 100%;
+    min-width: 0;
+    padding: 0.55rem 0.4rem;
+    font-size: 0.83rem;
+  }
+  .card:has(#rBody) .toolbar .actions {
+    grid-column: 1 / -1;
+  }
+  .card:has(#rBody) .toolbar .actions .btn {
+    justify-content: center;
+    flex: 1;
+  }
+
+  /* Gráfico de serviços: centralizado, legenda sem largura fixa */
+  .rep {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  .rep .donut {
+    width: min(190px, 60vw);
+    align-self: center;
+  }
+  .leg {
+    min-width: 0;
+    width: 100%;
+  }
+  .leg div {
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+  .leg span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  .leg b {
+    flex: 0 0 auto;
+  }
+
+  /* Histórico do cliente em modal mantém rolagem horizontal local */
+  .mc {
+    width: 92vw;
+    max-width: 100%;
+  }
+  .mb {
+    padding: 0.9rem;
+  }
+ /* Ajuste responsivo para tabelas dentro de modais (.mc) no mobile */
+  .mc .tw {
+    overflow-x: visible;
+  }
+  
+  .mc table {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+  
+  .mc thead {
+    display: none;
+  }
+  
+  .mc tbody, 
+  .mc tr {
+    display: block;
+    width: 100%;
+  }
+  
+  .mc tr {
+    margin-bottom: 0.75rem;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--bg);
+  }
+  
+  .mc td {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid var(--line) !important;
+    text-align: right;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  
+  .mc td:last-child {
+    border-bottom: 0 !important;
+  }
+
+  /* Rótulos automáticos para a tabela de histórico no modal */
+  .mc tbody tr td:nth-child(1)::before {
+    content: "Data";
+    color: var(--muted);
+    font-size: 0.76rem;
+    font-weight: 500;
+    text-align: left;
+    flex: 0 0 35%;
+  }
+  
+  .mc tbody tr td:nth-child(2)::before {
+    content: "Serviços";
+    color: var(--muted);
+    font-size: 0.76rem;
+    font-weight: 500;
+    text-align: left;
+    flex: 0 0 35%;
+  }
+  
+  .mc tbody tr td:nth-child(3)::before {
+    content: "Barbeiro";
+    color: var(--muted);
+    font-size: 0.76rem;
+    font-weight: 500;
+    text-align: left;
+    flex: 0 0 35%;
+  }
+
+  input[type="text"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="email"],
+  input[type="password"],
+  select {
+    font-size: 16px;
+  } /* Evita zoom ao focar no iOS */
+}
