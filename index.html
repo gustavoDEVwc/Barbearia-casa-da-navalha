@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Casa Navalha — Barbearia</title>
+<meta name="description" content="Site-modelo de barbearia. Todos os dados são fictícios.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Hanken+Grotesk:wght@400;500;700&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Hanken+Grotesk:wght@400;500;700&display=swap"></noscript>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap">
+  <a class="logo" id="logo" href="#top">Casa <b>Navalha</b></a>
+  <nav><a href="#servicos" data-cfg="navServicos"></a><a href="#info" data-cfg="navInfo"></a><a class="btn" href="#agendar" data-cfg="navAgendar"></a></nav>
+</div></header>
+
+<main id="top">
+<section class="hero" id="hero"><div class="hero-bg" id="heroBg"></div><div class="wrap">
+  <h1 data-cfg="heroTitulo"></h1>
+  <p data-cfg="heroTexto"></p>
+  <a class="btn" href="#agendar" data-cfg="ctaHero"></a>
+  <div class="next"><h2 data-cfg="proximosTitulo"></h2><div class="chips" id="nextChips"></div></div>
+</div></section>
+
+<div class="marquee" aria-hidden="true"><div class="mq-track" id="mq"></div></div>
+
+<section id="servicos"><div class="wrap">
+  <h2 data-cfg="servicosTitulo"></h2>
+  <p class="lead" data-cfg="servicosTexto"></p>
+</div>
+<div class="wrap row" id="row">
+  <button class="arrow l" id="prev" aria-label="Serviços anteriores" hidden>‹</button>
+  <div class="track" id="track" tabindex="0" role="region" aria-label="Lista de serviços"></div>
+  <button class="arrow r" id="next" aria-label="Próximos serviços">›</button>
+</div></section>
+
+<section id="info" style="padding-top:0"><div class="wrap">
+  <h2 data-cfg="infoTitulo"></h2>
+  <div class="info">
+    <div><h3>Horários</h3><span class="status" id="status"></span><ul id="hours"></ul></div>
+    <div><h3>Onde estamos</h3><div id="addr"></div></div>
+    <div><h3>Antes de vir</h3><div id="rules"></div></div>
+  </div>
+</div></section>
+
+<section id="agendar" style="padding-top:0"><div class="wrap">
+  <h2 data-cfg="agendarTitulo"></h2>
+  <div class="book">
+    <div id="form">
+      <fieldset><legend>1. Serviços <small>(escolha quantos quiser)</small></legend><div class="chips" id="cSvc"></div></fieldset>
+      <fieldset><legend>2. Barbeiro</legend><div class="barbers" id="cBar"></div></fieldset>
+      <fieldset><legend>3. Dia</legend><div class="chips" id="cDay"></div></fieldset>
+      <fieldset><legend>4. Horário</legend><div class="chips" id="cTime"></div></fieldset>
+      <fieldset><legend>5. Forma de pagamento <small>(no local)</small></legend><div class="chips" id="cPay"></div></fieldset>
+      <fieldset><legend>6. Seus dados</legend>
+        <label class="field">Nome<input id="nm" autocomplete="name" placeholder="Como devemos te chamar"></label>
+        <label class="field">Celular<input id="ph" type="tel" autocomplete="tel" placeholder="(00) 00000-0000"></label>
+      </fieldset>
+    </div>
+    <aside class="sum" aria-live="polite">
+      <h3>Seu horário</h3>
+      <dl><dt>Serviços</dt><dd id="sS">—</dd><dt>Duração</dt><dd id="sM">—</dd><dt>Barbeiro</dt><dd id="sB">—</dd><dt>Dia</dt><dd id="sD">—</dd><dt>Horário</dt><dd id="sT">—</dd></dl>
+      <div class="tot"><span>Total</span><span id="sP">R$ 0</span></div>
+      <button class="btn" id="go">Confirmar agendamento</button>
+      <p class="msg" id="msg"></p>
+    </aside>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span data-cfg="rodape"></span><span data-cfg="avisoRodape"></span><a href="admin.html">Área administrativa</a></div></footer>
+
+<script src="config.js"></script>
+<script src="store.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
