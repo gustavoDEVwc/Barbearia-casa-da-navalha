@@ -636,3 +636,6 @@ tfoot td {
 .pick-row span {
   flex: 1;
 }
+.donut{
+  width: 150px;
+}
