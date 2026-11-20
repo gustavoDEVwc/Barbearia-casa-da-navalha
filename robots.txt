@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gustavodevwc.github.io/Barbearia-casa-da-navalha/sitemap.xml
