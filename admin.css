@@ -120,3 +120,7 @@ input[type=date]::-webkit-date-and-time-value{text-align:left}
   #notes{left:.8rem;right:.8rem}.toast{max-width:none}
   .stats{gap:1rem}.stats div{min-width:40%}
 }
+
+/* filtro do relatório detalhado */
+.rfilt{display:flex;flex-wrap:wrap;gap:1rem;align-items:flex-end}.rfilt .field{min-width:180px}
+@media(max-width:700px){.rfilt{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}.rfilt .field{min-width:0}.rfilt .actions{grid-column:1/-1}.rfilt .actions .btn{width:100%;justify-content:center}}
